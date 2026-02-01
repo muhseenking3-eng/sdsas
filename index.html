@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verificação</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:'Inter',sans-serif;
+    background:linear-gradient(135deg,#020617,#0f172a);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.box{
+    width:90%;
+    max-width:380px;
+    background:#020617;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 30px 90px rgba(0,0,0,.7);
+}
+
+.top{
+    padding:32px 24px;
+    text-align:center;
+    background:linear-gradient(135deg,#3b82f6,#06b6d4);
+    color:#020617;
+}
+
+.top h1{
+    margin:0;
+    font-size:20px;
+    font-weight:700;
+}
+
+.top p{
+    margin-top:8px;
+    font-size:14px;
+    opacity:.9;
+}
+
+.mid{
+    padding:30px 24px;
+    text-align:center;
+}
+
+.circle{
+    width:140px;
+    height:140px;
+    margin:0 auto;
+    border-radius:50%;
+    background:conic-gradient(#3b82f6 0%, #1e293b 0%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.inner{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    background:#020617;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    font-weight:700;
+    color:#3b82f6;
+}
+
+.bottom{
+    padding:24px;
+}
+
+.btn{
+    display:block;
+    width:100%;
+    padding:16px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#3b82f6,#06b6d4);
+    color:#020617;
+    text-align:center;
+    font-weight:700;
+    text-decoration:none;
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 15px 35px rgba(59,130,246,.6);
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <div class="top">
+        <h1>Verificando dados</h1>
+        <p>Aguarde a liberação do acesso</p>
+    </div>
+
+    <div class="mid">
+        <div class="circle" id="circle">
+            <div class="inner" id="text">0%</div>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <a href="https://acessoserusacliente.shop/" class="btn">
+            ACESSAR
+        </a>
+    </div>
+</div>
+
+<script>
+let v = 0;
+const circle = document.getElementById("circle");
+const text = document.getElementById("text");
+
+const load = setInterval(()=>{
+    v++;
+    circle.style.background =
+      `conic-gradient(#3b82f6 ${v*3.6}deg, #1e293b 0deg)`;
+    text.innerText = v + "%";
+    if(v >= 100) clearInterval(load);
+}, 35);
+</script>
+
+</body>
+</html>
